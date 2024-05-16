@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/stackline-assignment/static/css/main.5a86ac75.css",
+    "main.js": "/stackline-assignment/static/js/main.5810ef3c.js",
+    "index.html": "/stackline-assignment/index.html",
+    "main.5a86ac75.css.map": "/stackline-assignment/static/css/main.5a86ac75.css.map",
+    "main.5810ef3c.js.map": "/stackline-assignment/static/js/main.5810ef3c.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.5a86ac75.css",
+    "static/js/main.5810ef3c.js"
+  ]
+}
