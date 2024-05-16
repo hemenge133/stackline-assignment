@@ -3,16 +3,19 @@
 }
 
 .logo {
-  width: 15%;
+  width: auto;
+  height: 50px;
   margin-right: 16px;
   margin-top: 16px;
   margin-bottom: 16px;
 }
 
 .container {
-  padding: 24px;
-  height: calc(100vh - 88px); /* Full height minus the app bar */
+  padding: 5rem;
+  height: calc(95vh - 88px); 
+  width: 95vw;
   display: flex;
+  overflow: hidden;
 }
 
 .card-container {
@@ -26,7 +29,7 @@
   flex: 1;
   display: flex;
   flex-direction: column;
-  height: 100%;
+  height: 100vh;
 }
 
 .chart-wrapper,
@@ -41,7 +44,10 @@
 .table-wrapper.visible {
   display: flex; /* Show when active */
   flex-direction: column;
+  padding-bottom: 7rem;
+  margin-bottom: 7rem;
 }
+
 
 .chart-area-wrapper,
 .table-area-wrapper {
@@ -53,10 +59,36 @@
 }
 
 .chart-area-wrapper canvas {
-  width: 100% !important; /* Ensure canvas takes full width */
+  width: 96% !important;
 }
 
 .table-content {
   flex: 1;
   overflow: auto; /* Allow scrolling for table */
 }
+
+.tooltip {
+  position: absolute;
+  background: rgba(0, 0, 0, 0.75);
+  color: white;
+  padding: 8px;
+  border-radius: 4px;
+  font-size: 14px;
+  text-align: right;
+  pointer-events: none;
+  z-index: 10;
+  transform: translate(-50%, -50%);
+  right: 10%;
+  transition: opacity 0.3s ease;
+}
+
+.tooltip-hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.tooltip-visible {
+  opacity: 1;
+  visibility: visible;
+}
+  

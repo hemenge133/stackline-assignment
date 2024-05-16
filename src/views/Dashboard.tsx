@@ -24,9 +24,8 @@ import { parseISO, format } from 'date-fns';
 import 'chartjs-adapter-date-fns';
 import TooltipComponent from '../components/Tooltip';
 import '../styles/Dashboard.css';
-import { Product, Sale } from '../types'; // Import Product and Sale types
+import { Product, Sale } from '../types';
 
-// Register the necessary Chart.js components
 ChartJS.register(LinearScale, LineElement, PointElement, Title, Tooltip, Legend, TimeScale, CategoryScale, zoomPlugin);
 
 const getChartOptions = (selectedProduct: Product | null): ChartOptions<'line'> => ({
@@ -59,7 +58,7 @@ const getChartOptions = (selectedProduct: Product | null): ChartOptions<'line'> 
       zoom: {
         wheel: {
           enabled: true,
-          speed: 0.01,
+          speed: 0.03,
         },
         pinch: {
           enabled: false,
@@ -83,6 +82,7 @@ const getChartOptions = (selectedProduct: Product | null): ChartOptions<'line'> 
   },
 });
 
+// Change monthly ticks to daily based on zoom amount
 const enforceLimitsPlugin: Plugin<'line'> = {
   id: 'enforceLimits',
   beforeUpdate: (chart) => {
@@ -100,12 +100,13 @@ const Dashboard: React.FC = () => {
   const dispatch = useDispatch<AppDispatch>();
   const products = useSelector((state: RootState) => state.data.products) as Product[];
   const chartRef = useRef<ChartJS<'line'> | null>(null);
+
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
-  const [view, setView] = useState<'chart' | 'table'>('chart'); // State to toggle between chart and table views
+  const [view, setView] = useState<'chart' | 'table'>('chart'); 
 
   useEffect(() => {
     dispatch(fetchData());
-  }, [dispatch]);
+  }, [dispatch]); // Get Products[]
 
   useEffect(() => {
     if (products.length > 0) {
@@ -127,9 +128,9 @@ const Dashboard: React.FC = () => {
 
   return (
     <>
-      <AppBar position="static" className="app-bar">
+      <AppBar position="static"  className="app-bar">
         <Toolbar>
-          <Box component="img" src={`${window.location.origin}/stackline-assignment/logo.svg`} alt="Logo" className="logo" />
+          <Box component="img" src={`${window.location.origin}/stackline-assignment/logo.svg`} alt="Logo" className="logo"  />
         </Toolbar>
       </AppBar>
       <div className="container">

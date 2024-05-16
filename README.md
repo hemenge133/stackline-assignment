@@ -35,6 +35,9 @@ To demonstrate the application's capability to handle multiple products, the JSO
 ### Responsiveness
 Although the current layout works well on larger screens, some components need improved responsiveness for smaller screens and especially mobile devices. Future updates will focus on enhancing the responsive design to ensure a seamless user experience across all devices.
 
+### Code Cleanliness
+With more time, I could have created more components and refactored a bit to make the dashboard view more readable. 
+
 ### Detailed Product View
 Adding a section to view detailed information about products, including reviews, specifications, and other relevant data, would enhance the application's utility. This feature would provide users with comprehensive insights into each product.
 
