@@ -1,46 +1,42 @@
-# Getting Started with Create React App
+# Dashboard Application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is a dashboard application built using modern frontend technologies including React, Redux Toolkit, Chart.js, and Material-UI. The dashboard allows users to visualize product sales data, switch between chart and table views, and dynamically select different products.
 
-## Available Scripts
+## Technology Choices
 
-In the project directory, you can run:
+### Redux Toolkit
+Redux Toolkit is the recommended way to use Redux for state management. It simplifies the setup and management of global state with tools like `createSlice` and `configureStore`.
 
-### `npm start`
+### Chart.js
+Chart.js is a powerful and simple-to-use JavaScript library for data visualization. It supports a variety of chart types and is highly customizable.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Material-UI
+Material-UI is a popular React component library that implements Google's Material Design. It provides a wide range of pre-styled components, making it easy to build responsive and visually appealing interfaces.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Features
 
-### `npm test`
+### Sort Table by Columns
+The table of sales data can be sorted by any column in ascending or descending order. This feature enhances data analysis by allowing users to quickly organize data according to their needs.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Dynamic Layout
+The application dynamically adjusts its layout based on the selected view (chart or table) and the selected product. The layout ensures that the selected component (chart or table) takes up the full width and height of the container, providing an optimal viewing experience.
 
-### `npm run build`
+### Zoomable Chart
+The sales chart is zoomable and pannable, enabling users to focus on specific time periods and trends. This functionality is powered by the `chartjs-plugin-zoom` plugin for Chart.js.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Chart Tooltips
+Any point on the sales chart can be hovered over to view the date, sales type, and more.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Extended Dataset
+To demonstrate the application's capability to handle multiple products, the JSON dataset was extended. This shows how the app dynamically updates its views based on the selected product.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Future Improvements
 
-### `npm run eject`
+### Responsiveness
+Although the current layout works well on larger screens, some components need improved responsiveness for smaller screens and especially mobile devices. Future updates will focus on enhancing the responsive design to ensure a seamless user experience across all devices.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Detailed Product View
+Adding a section to view detailed information about products, including reviews, specifications, and other relevant data, would enhance the application's utility. This feature would provide users with comprehensive insights into each product.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Advanced Time Series Analysis
+Incorporating advanced time series analysis tools such as moving averages, percentiles, and other statistical methods would provide deeper insights into sales trends. These tools would allow users to perform more sophisticated analyses directly within the dashboard.
