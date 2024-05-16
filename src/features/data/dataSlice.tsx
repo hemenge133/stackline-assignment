@@ -7,7 +7,7 @@ export const setData = (data: any[]) => ({
 
 export const fetchData = () => {
   return (dispatch: Dispatch<any>) => {
-    fetch('/data.json')
+    fetch(`${window.location.origin}/stackline-assignment/data.json`)
       .then((response) => response.json())
       .then((data) => {
         console.log('Fetched data:', data); // Add this line to log the fetched data
