@@ -1,43 +1,18 @@
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import { Product } from '../../models/productModel';
+import { Dispatch } from 'redux';
 
-export const fetchData = createAsyncThunk('data/fetchData', async () => {
-  const response = await fetch('/data.json'); // Ensure this path is correct
-  const data: Product[] = await response.json(); // Correctly type as an array of Product
-  return data[0]; // Assuming we are dealing with the first product in the JSON array
+export const setData = (data: any[]) => ({
+  type: 'SET_DATA',
+  payload: data,
 });
 
-interface DataState {
-  product: Product | null;
-  loading: boolean;
-  error: string | null;
-}
-
-const initialState: DataState = {
-  product: null,
-  loading: false,
-  error: null,
+export const fetchData = () => {
+  return (dispatch: Dispatch<any>) => {
+    fetch('/data.json')
+      .then((response) => response.json())
+      .then((data) => {
+        console.log('Fetched data:', data); // Add this line to log the fetched data
+        dispatch(setData(data)); // Dispatch the entire array
+      })
+      .catch((error) => console.error('Error fetching data:', error));
+  };
 };
-
-const dataSlice = createSlice({
-  name: 'data',
-  initialState,
-  reducers: {},
-  extraReducers: (builder) => {
-    builder
-      .addCase(fetchData.pending, (state) => {
-        state.loading = true;
-        state.error = null;
-      })
-      .addCase(fetchData.fulfilled, (state, action) => {
-        state.loading = false;
-        state.product = action.payload;
-      })
-      .addCase(fetchData.rejected, (state, action) => {
-        state.loading = false;
-        state.error = action.error.message || 'Failed to fetch data';
-      });
-  },
-});
-
-export default dataSlice.reducer;

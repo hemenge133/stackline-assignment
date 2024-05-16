@@ -1,26 +1,62 @@
-.chartWrapper {
-  position: relative;
-  overflow-x: auto;
+.app-bar {
+  position: static;
 }
 
-.chartAreaWrapper {
+.logo {
+  width: 15%;
+  margin-right: 16px;
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+
+.container {
+  padding: 24px;
+  height: calc(100vh - 88px); /* Full height minus the app bar */
+  display: flex;
+}
+
+.card-container {
+  max-height: 100%;
+  overflow-y: auto;
+  flex: 0 0 300px; /* Fixed width for the card container */
+  margin-right: 24px; /* Space between card container and chart/table */
+}
+
+.chart-table-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.chart-wrapper,
+.table-wrapper {
+  flex: 1;
+  display: none; /* Hide by default */
+  width: 100%; /* Set chart width to 75vw */
+  overflow: hidden; /* Prevent internal overflow */
+}
+
+.chart-wrapper.visible,
+.table-wrapper.visible {
+  display: flex; /* Show when active */
+  flex-direction: column;
+}
+
+.chart-area-wrapper,
+.table-area-wrapper {
   width: 100%;
-  min-width: 1000px; /* Adjust this to ensure the chart can scroll */
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
-.tooltip {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  padding: 10px 20px;
-  background-color: rgba(0, 0, 0, 0.8);
-  color: white;
-  border-radius: 5px;
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.5s ease-in-out;
-  pointer-events: none;
-  z-index: 1000;
+.chart-area-wrapper canvas {
+  width: 100% !important; /* Ensure canvas takes full width */
 }
 
+.table-content {
+  flex: 1;
+  overflow: auto; /* Allow scrolling for table */
+}

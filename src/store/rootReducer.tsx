@@ -1,8 +1,9 @@
-import { combineReducers } from '@reduxjs/toolkit';
-import dataReducer from '../features/data/dataSlice';
+import { combineReducers } from 'redux';
+import dataReducer from './dataReducer';
 
 const rootReducer = combineReducers({
   data: dataReducer,
 });
 
+export type RootState = ReturnType<typeof rootReducer>;
 export default rootReducer;
