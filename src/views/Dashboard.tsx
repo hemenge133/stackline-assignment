@@ -129,7 +129,7 @@ const Dashboard: React.FC = () => {
     <>
       <AppBar position="static" className="app-bar">
         <Toolbar>
-          <Box component="img" src="/logo.svg" alt="Logo" className="logo" />
+          <Box component="img" src={`${window.location.origin}/stackline-assignment/logo.svg`} alt="Logo" className="logo" />
         </Toolbar>
       </AppBar>
       <div className="container">
